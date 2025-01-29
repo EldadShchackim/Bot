@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shtool Bot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-black text-white flex items-start justify-center min-h-screen overflow-hidden">
+
+    <div id="background-animation"></div>
+
+    <div class="overlay absolute inset-0"></div>
+
+    <!-- Left Sidebar (Instructions) -->
+    <!-- <div class="sidebar-left bg-gray-800 bg-opacity-75 p-4 w-1/4 overflow-y-auto fixed left-0 top-0 h-full z-10">
+        <h2 class="text-xl font-bold mb-4 text-purple-400">Shtol User Guide</h2>
+        <div id="instructions-content">
+            
+        </div>
+    </div> -->
+
+    <!-- Right Sidebar (Homework/Quiz) -->
+    <!-- <div class="sidebar-right bg-gray-800 bg-opacity-75 p-4 w-1/4 overflow-y-auto fixed right-0 top-0 h-full z-10">
+        <h2 class="text-xl font-bold mb-4 text-purple-400">Homework & Quiz</h2>
+        <div id="homework-content">
+            
+        </div>
+    </div> -->
+
+    <!-- Main Chat Container -->
+    <div style="direction: rtl;" class="chat-container bg-gray-900 bg-opacity-80 rounded-lg shadow-xl overflow-hidden flex flex-col w-1/2 max-w-2xl h-[90vh] mx-auto relative z-10 mt-4">
+        <div class="chat-header p-4 bg-gradient-to-r from-purple-500 via-blue-600 to-green-500 text-white font-bold flex justify-between items-center rounded-t-lg">
+            <h2 class="text-xl">שחקים בוט</h2>
+            <div class="flex space-x-2">
+                <button id="admin-button" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition-colors">Admin</button>
+                <button id="memory-toggle" class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded transition-colors">Memory</button>
+            </div>
+        </div>
+        <div class="chat-box flex-1 p-4 overflow-y-auto flex flex-col space-y-4" id="chat-box">
+            <!-- Chat messages will be added here -->
+        </div>
+        <div class="memory-box fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-lg shadow-xl p-6 w-96 hidden z-20" id="memory-box">
+            <h2 class="text-xl font-bold mb-4 text-purple-400">Memory</h2>
+            <div class="memory-content overflow-y-auto max-h-60" id="memory-content">
+                <!-- Memory items will be added here -->
+            </div>
+            <div class="flex justify-end mt-4">
+                <button id="close-memory" class="bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded transition-colors">Close</button>
+            </div>
+        </div>
+        <!-- Admin Modal -->
+        <div id="admin-modal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-lg shadow-xl p-6 w-96 z-20 hidden">
+          <h2 class="text-xl font-bold mb-4 text-purple-400">Admin Panel</h2>
+          <div class="mb-4">
+            <label for="course-number" class="block font-medium mb-1 text-gray-300">Course Number:</label>
+            <input type="text" id="course-number" class="w-full bg-gray-700 border border-gray-600 text-white rounded-md p-2">
+          </div>
+          <div class="mb-4">
+            <label for="lesson-number" class="block font-medium mb-1 text-gray-300">Lesson Number:</label>
+            <input type="text" id="lesson-number" class="w-full bg-gray-700 border border-gray-600 text-white rounded-md p-2">
+          </div>
+          <button id="lesson-summary-button" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-bold transition-colors">Create Lesson Summary</button>
+          <div id="summary-output" class="mt-4 text-gray-300">
+            <!-- Lesson summary will be displayed here -->
+          </div>
+          <div class="flex justify-end mt-4">
+            <button id="admin-close-button" class="bg-gray-600 hover:bg-gray-700 text-white px-3 py-1 rounded transition-colors">Close</button>
+          </div>
+        </div>
+        <div class="input-area flex p-4 border-t border-gray-700">
+            <input type="text" id="user-input" placeholder="כתוב את ההודעה שלך כאן" class="flex-1 bg-gray-700 border border-gray-600 text-white rounded-md p-2 ml-2 focus:outline-none focus:border-blue-500 transition-colors">
+            <button id="send-button" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md font-bold transition-colors">שלח</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
